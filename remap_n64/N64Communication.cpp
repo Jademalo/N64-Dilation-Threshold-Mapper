@@ -196,7 +196,7 @@ read_loop:
         while (N64_QUERY){}
 
         // wait approx 2us and poll the line
-        NOP; NOP; NOP;
+        NOP; NOP; NOP; //For future me, if this is over 6 NOPs then everything breaks. This while read routine doesn't work, and always returns 0x00. I just forced the inputs to be constantly thrown at the n64 and it seems to work fine.
         if (N64_QUERY)
             n64_command |= 0x01;
 
